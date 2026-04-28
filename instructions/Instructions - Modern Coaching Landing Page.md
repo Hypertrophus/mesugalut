@@ -75,7 +75,7 @@ Both imported via Google Fonts CDN
 
 ### Section 2 — `.hero` Dark Black Background
 - Big H1 in two lines using DM Sans Bold (Hebrew): "אל תתפשר / על הגוף שלך"
-- Sub-copy: "ליווי מקצועי בפיזי ואונליין. מבוסס מדע. מותאם אישית."
+- Sub-copy: "ליווי מקצועי בפרונטלי ואונליין. מבוסס מדע. מותאם אישית."
 - Two CTA buttons: Primary orange "ייעוץ ראשוני חינם" + ghost "הכר את הצוות ↓"
 - Coach portraits: side-by-side portrait cards (coach1.jpg, coach2.jpg), grayscale by default
 - Bottom: warm orange glow divider
@@ -124,7 +124,6 @@ Both imported via Google Fonts CDN
 
 ### Section 7 — `.contact` Orange Background (only colored section)
 - Headline: "מוכן להתחיל?"
-- Sub: "השאר פרטים ונחזור אליך תוך 24 שעות."
 - Form fields: Name, Email, Phone (optional), Goal dropdown
 - Dropdown options: מסה | חיטוב | כוח | שיפור כללי
 - Submit button: Black with white text
