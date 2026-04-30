@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title | default('מ.ס.ו.ג.ל.ו.ת | מסגרת ספורטיבית וגיבושית לתקשורת ותנועה') }}</title>
+        <meta
+            name="description"
+            content="{{ description | default('מ.ס.ו.ג.ל.ו.ת — מסגרת ספורטיבית וגיבושית לתקשורת ותנועה. פעילות בחדר כושר, מיומנויות תקשורת, ותחביבים חדשים.') }}"
+        />
+        <link rel="stylesheet" href="/assets/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&family=Assistant:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Netlify Identity Widget for CMS login -->
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    </head>
+
+    <body>
+        {{ content | safe }}
+
+        <script>
+            // ===== NAV SCROLL =====
+            const navbar = document.getElementById("navbar");
+            if (navbar) {
+                window.addEventListener(
+                    "scroll",
+                    () => {
+                        navbar.classList.toggle("scrolled", window.scrollY > 60);
+                    },
+                    { passive: true },
+                );
+            }
+
+            // ===== REVEAL ON SCROLL =====
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const delay = entry.target.dataset.delay || 0;
+                            setTimeout(
+                                () => entry.target.classList.add("revealed"),
+                                delay,
+                            );
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.12 },
+            );
+
+            document.querySelectorAll(".ri").forEach((el, i) => {
+                el.dataset.delay = (i % 3) * 110;
+                revealObserver.observe(el);
+            });
+
+            // Make sure Netlify Identity redirects correctly after login
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                    if (!user) {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
+            }
+        </script>
+        {% block extra_scripts %}{% endblock %}
+    </body>
+</html>

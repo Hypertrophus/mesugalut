@@ -1,0 +1,58 @@
+---
+layout: base.njk
+---
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">
+            מ.ס.ו.ג.ל.ו.ת <span class="brand-dot">·</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/" class="nav-link">בית</a></li>
+            <li>
+                <a href="/blog.html" class="nav-link active">בלוג</a>
+            </li>
+            <li>
+                <a href="/#contact" class="nav-link">להרשמה</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="post-header" style="margin-top: 120px; text-align: center;">
+    <div class="container">
+        <span class="article-category" style="color: var(--accent); font-weight: bold;">{{ category }}</span>
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">{{ title }}</h1>
+        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;">
+            {{ description }}
+        </p>
+        {% if image %}
+        <img src="{{ image }}" alt="{{ title }}" style="width: 100%; max-width: 800px; border-radius: 12px; margin-bottom: 40px;" />
+        {% endif %}
+    </div>
+</section>
+
+<section class="post-content" style="max-width: 800px; margin: 0 auto; padding: 0 20px 80px; line-height: 1.8; font-size: 1.1rem;">
+    {{ content | safe }}
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">מ.ס.וג.ל.ו.ת</span>
+                <span class="footer-tagline">מסגרת ספורטיבית וגיבושית לתקשורת ותנועה</span>
+            </div>
+            <div class="footer-links">
+                <a href="/" class="nav-link">חזרה לבית</a>
+                <a href="mailto:hello@msglvut.co.il" class="social-link" id="footer-email" aria-label="Email">
+                    יצירת קשר
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 מ.ס.וג.ל.ו.ת. כל הזכויות שמורות.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,33 @@
+<h2>Goal</h2>
+<p>Convert the existing static HTML website to use Eleventy (11ty) as a Static Site Generator and integrate Decap CMS (formerly Netlify CMS). This will allow for easy, UI-based management of blog articles without needing a backend server or database, preserving perfect SEO and site performance.</p>
+<h2>Files involved</h2>
+<ul>
+<li><code>package.json</code> (New - for installing Eleventy)</li>
+<li><code>.eleventy.js</code> (New - Eleventy configuration)</li>
+<li><code>admin/index.html</code> (New - Decap CMS entry point)</li>
+<li><code>admin/config.yml</code> (New - Decap CMS schema configuration)</li>
+<li><code>index.html</code> (Modified - to use Eleventy layout)</li>
+<li><code>blog.html</code> (Modified - converted to a template to dynamically list articles)</li>
+<li><code>_includes/base.njk</code> (New - base HTML layout containing header/footer)</li>
+<li><code>posts/</code> (New directory - to store Markdown files for blog posts)</li>
+<li><code>_includes/post.njk</code> (New - template for rendering individual blog articles)</li>
+</ul>
+<h2>Implementation plan</h2>
+<ol>
+<li><strong>Initialize Node.js &amp; Install Eleventy</strong>: Run <code>npm init -y</code> and <code>npm install @11ty/eleventy --save-dev</code>.</li>
+<li><strong>Setup Eleventy Configuration</strong>: Create <code>.eleventy.js</code> to configure the input/output directories and passthrough copies (for CSS and assets).</li>
+<li><strong>Extract Base Layout</strong>: Move the common <code>head</code>, <code>navbar</code>, and <code>footer</code> from <code>index.html</code> and <code>blog.html</code> into <code>_includes/base.njk</code>.</li>
+<li><strong>Refactor Pages</strong>: Update <code>index.html</code> and <code>blog.html</code> to inherit from <code>base.njk</code>.</li>
+<li><strong>Dynamic Blog Listing</strong>: Update <code>blog.html</code> to use a Nunjucks <code>for</code> loop to iterate over a <code>collections.posts</code> collection.</li>
+<li><strong>Create Post Layout</strong>: Create <code>_includes/post.njk</code> to render individual article content.</li>
+<li><strong>Setup Decap CMS</strong>: Create <code>admin/index.html</code> and <code>admin/config.yml</code>. Configure the CMS schema to output Markdown files with frontmatter (title, description, image, etc.) into the <code>posts/</code> directory.</li>
+<li><strong>Test Build</strong>: Run Eleventy to ensure <code>_site/</code> is generated correctly.</li>
+</ol>
+<h2>Risks / edge cases</h2>
+<ul>
+<li><strong>Asset Paths</strong>: CSS and image paths might break during the transition. We need to ensure Eleventy's passthrough copy is set up correctly for the <code>assets/</code> directory.</li>
+<li><strong>CMS Authentication</strong>: Decap CMS requires a backend for authentication. If deploying to Netlify, Netlify Identity can be used. If deploying elsewhere, a lightweight OAuth proxy (like Decap's standalone Go server) might be needed. We will start with <code>local_backend: true</code> for local testing.</li>
+<li><strong>RTL &amp; Styling</strong>: The CMS admin panel is English/LTR by default, but the generated site will remain RTL Hebrew. We need to make sure the CMS fields support Hebrew text properly (which they do natively).</li>
+</ul>
+<h2>Troubleshooting log</h2>
+<p><em>Pending implementation...</em></p>

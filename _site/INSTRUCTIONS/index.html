@@ -1,0 +1,79 @@
+<p>Instructions: Always-Online Lead Collection (100% Free)
+This architecture uses GitHub for hosting and Google as the backend. It is designed to be zero-cost, zero-maintenance, and bypass modern browser security restrictions.</p>
+<p>Step 1: Prepare Your Google Sheet
+Create a new Google Sheet.</p>
+<p>In the first row, create these headers: Date, name, email.</p>
+<p>Go to Extensions &gt; Apps Script.</p>
+<p>Delete all existing code and paste this &quot;no-fail&quot; script:</p>
+<p>JavaScript
+function doPost(e) {
+const lock = LockService.getScriptLock();
+lock.tryLock(10000); // Wait for 10s to avoid overlap</p>
+<p>try {
+const doc = SpreadsheetApp.getActiveSpreadsheet();
+const sheet = doc.getActiveSheet();</p>
+<p>// Extract data from the form
+const name = e.parameter.name;
+const email = e.parameter.email;
+const date = new Date();</p>
+<p>// Append data to the sheet
+sheet.appendRow([date, name, email]);</p>
+<p>return ContentService
+.createTextOutput(JSON.stringify({ &quot;result&quot;: &quot;success&quot; }))
+.setMimeType(ContentService.MimeType.JSON);</p>
+<p>} catch (err) {
+return ContentService
+.createTextOutput(JSON.stringify({ &quot;result&quot;: &quot;error&quot;, &quot;error&quot;: err.toString() }))
+.setMimeType(ContentService.MimeType.JSON);
+} finally {
+lock.releaseLock();
+}
+}
+Step 2: Deploy the Backend
+In Apps Script, click Deploy &gt; New deployment.</p>
+<p>Select Web app.</p>
+<p>Set Execute as: Me.</p>
+<p>Set Who has access: Anyone. (CRITICAL: Do not select &quot;Anyone with a Google account&quot;).</p>
+<p>Click Deploy. Authorize the permissions (Click Advanced &gt; Go to [Project Name] if warned).</p>
+<p>Copy the Web App URL.</p>
+<p>Step 3: Connect Your HTML Form
+Update your index.html with the following logic. This uses no-cors mode to ensure Google doesn't block the request.</p>
+<p>HTML</p>
+<form id="lead-form">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <button type="submit" id="submit-btn">Join Waitlist</button>
+</form>
+<script>
+  const scriptURL = 'YOUR_WEB_APP_URL_HERE'; // PASTE YOUR URL HERE
+  const form = document.getElementById('lead-form');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerText = "Saving...";
+
+    fetch(scriptURL, { 
+      method: 'POST', 
+      body: new FormData(form),
+      mode: 'no-cors' // Allows the request to succeed without CORS errors
+    })
+    .then(() => {
+      alert("Success! You're on the list.");
+      btn.innerText = "Joined!";
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      btn.disabled = false;
+      btn.innerText = "Try Again";
+    });
+  });
+</script>
+<p>Step 4: Host on GitHub Pages
+Create a public repository on GitHub.</p>
+<p>Upload your index.html and any CSS/images.</p>
+<p>Go to Settings &gt; Pages.</p>
+<p>Set the Source to Deploy from a branch and select main / root.</p>
+<p>Your site is now live at https://yourusername.github.io/repo-name/.</p>

@@ -1,0 +1,234 @@
+<h1>Instructions — Modern Coaching Landing Page (Safarov &amp; Sagi)</h1>
+<h2>Goal</h2>
+<p>Rebuild the landing page from scratch, inspired by MacroFactor.com's design language — alternating high-contrast sections, bold editorial typography, minimal nav, and confident copy — but adapted for a <strong>human fitness coaching service</strong> (frontal + online). No app downloads, no AI-slop imagery, no generic stock photos.</p>
+<hr>
+<h2>Files Involved</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.html</code></td>
+<td>Full rewrite</td>
+</tr>
+<tr>
+<td><code>assets/styles.css</code></td>
+<td>Full rewrite</td>
+</tr>
+<tr>
+<td><code>assets/coach1.jpg</code></td>
+<td>Keep as-is</td>
+</tr>
+<tr>
+<td><code>assets/coach2.jpg</code></td>
+<td>Keep as-is</td>
+</tr>
+<tr>
+<td><code>INSTRUCTIONS.md</code></td>
+<td>Keep as-is (deployment guide)</td>
+</tr>
+</tbody>
+</table>
+<p>No npm, no build step, no external JS libraries. Pure HTML + CSS + vanilla JS.</p>
+<hr>
+<h2>Design Philosophy (MacroFactor-inspired, coaching-adapted)</h2>
+<table>
+<thead>
+<tr>
+<th>MacroFactor Principle</th>
+<th>Our Adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alternating black/white full-width sections</td>
+<td>Same — creates visual rhythm</td>
+</tr>
+<tr>
+<td>Bold wide headings</td>
+<td>Bebas Neue (numbers/Latin) + DM Sans Bold (Hebrew)</td>
+</tr>
+<tr>
+<td>Clean body copy</td>
+<td>DM Sans 400 for all body text</td>
+</tr>
+<tr>
+<td>Blue accent glow</td>
+<td>Warm orange (#e8611a) — energetic, human, non-generic</td>
+</tr>
+<tr>
+<td>Minimal fixed navigation</td>
+<td>Sticky nav: brand name left, single CTA right</td>
+</tr>
+<tr>
+<td>Real photos, not stock</td>
+<td>Use existing coach1.jpg / coach2.jpg</td>
+</tr>
+<tr>
+<td>Authoritative short-form copy</td>
+<td>Short Hebrew power statements + one-line explanations</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Color Palette</h2>
+<pre><code>--color-black:      #0a0a0a      (near-black backgrounds)
+--color-white:      #f5f4f0      (warm off-white backgrounds)
+--color-accent:     #e8611a      (warm orange — main accent)
+--color-accent2:    #c94f10      (darker orange — hover states)
+--color-text-light: #1a1a1a      (text on white sections)
+--color-text-dark:  #f0ede8      (text on black sections)
+--color-muted:      #888888      (secondary text / labels)
+</code></pre>
+<hr>
+<h2>Typography</h2>
+<pre><code>Headings (H1/H2):  &quot;Bebas Neue&quot; — for Latin/numerals/brand name
+                    All-caps, letter-spacing: 0.04em
+Hebrew headings:   &quot;DM Sans&quot; weight 700 — has clean Hebrew support
+Body / Labels:     &quot;DM Sans&quot; weight 400
+Both imported via Google Fonts CDN
+</code></pre>
+<blockquote>
+<p><strong>Hebrew + Bebas Neue note:</strong> Bebas Neue has no Hebrew glyphs. Hebrew headings render in DM Sans Bold. Bebas Neue is used for: logo/brand name, stat numbers, and any Latin text. This is intentional — creates strong typographic contrast and a premium dual-language feel.</p>
+</blockquote>
+<hr>
+<h2>Implementation Plan</h2>
+<h3>Section 1 — <code>&lt;nav&gt;</code> Sticky Minimal Navigation</h3>
+<ul>
+<li>Transparent background on load → solid black after 60px scroll (JS scroll listener)</li>
+<li>Left (RTL = visual right): Brand name &quot;SAFAROV &amp; SAGI&quot; in Bebas Neue, orange separator dot</li>
+<li>Right (RTL = visual left): Single button &quot;ייעוץ חינם&quot; → anchors to #contact</li>
+<li>Height: 64px, <code>position: fixed</code>, <code>z-index: 100</code></li>
+<li>Transition: <code>background 0.3s ease</code></li>
+</ul>
+<hr>
+<h3>Section 2 — <code>.hero</code> Dark Black Background</h3>
+<ul>
+<li>Big H1 in two lines using DM Sans Bold (Hebrew): &quot;אל תתפשר / על הגוף שלך&quot;</li>
+<li>Sub-copy: &quot;ליווי מקצועי בפרונטלי ואונליין. מבוסס מדע. מותאם אישית.&quot;</li>
+<li>Two CTA buttons: Primary orange &quot;ייעוץ ראשוני חינם&quot; + ghost &quot;הכר את הצוות ↓&quot;</li>
+<li>Coach portraits: side-by-side portrait cards (coach1.jpg, coach2.jpg), grayscale by default</li>
+<li>Bottom: warm orange glow divider</li>
+</ul>
+<hr>
+<h3>Section 3 — <code>.method</code> Off-White Background</h3>
+<ul>
+<li>Headline: &quot;המתודולוגיה&quot;</li>
+<li>3 cards (number + icon + title + body):
+<ul>
+<li>01 — מדע: &quot;כל תוכנית מבוססת על עקרונות היפרטרופיה המוכחים&quot;</li>
+<li>02 — מעקב: &quot;ניטור שבועי, עדכונים שוטפים, ותיאום מתמיד&quot;</li>
+<li>03 — אדפטציה: &quot;התוכנית מתאימה לך — לא אתה לתוכנית&quot;</li>
+</ul>
+</li>
+<li>Card style: Large orange number (01/02/03 in Bebas Neue) + bold DM Sans title</li>
+</ul>
+<hr>
+<h3>Section 4 — <code>.services</code> Black Background</h3>
+<ul>
+<li>Headline: &quot;איך עובדים איתנו&quot;</li>
+<li>Two large side-by-side cards:
+<ul>
+<li>Card A: &quot;אימון פרונטלי 1:1&quot; — bullet list of inclusions + CTA link</li>
+<li>Card B: &quot;ליווי אונליין&quot; — bullet list of inclusions + CTA link</li>
+</ul>
+</li>
+<li>Card style: 1px orange border, hover → orange glow <code>box-shadow</code></li>
+</ul>
+<hr>
+<h3>Section 5 — <code>.coaches</code> Off-White Background</h3>
+<ul>
+<li>Headline: &quot;הצוות&quot;</li>
+<li>Two portrait cards using coach1.jpg / coach2.jpg
+<ul>
+<li>Grayscale → color on hover (CSS <code>filter</code> transition)</li>
+<li>Name in DM Sans Bold, Role in DM Sans italic, 2–3 line bio</li>
+</ul>
+</li>
+<li>Roman Safarov: training &amp; hypertrophy specialist, 10+ years experience</li>
+<li>Sagi: nutrition &amp; online coaching specialist</li>
+</ul>
+<hr>
+<h3>Section 6 — <code>.results</code> Black Background</h3>
+<ul>
+<li>Headline: &quot;תוצאות אמיתיות&quot;</li>
+<li>Sub-line: &quot;לא לפני-אחרי מזויפים. רק מספרים.&quot;</li>
+<li>3 stat cards with count-up animation on scroll:
+<ul>
+<li>+12 ק&quot;ג — שריר ממוצע בשנה הראשונה</li>
+<li>87% — מהמתאמנים עמדו ביעד ב-6 חודשים</li>
+<li>4+ — שנות ניסיון ממוצעות של לקוחותינו</li>
+</ul>
+</li>
+<li><strong>Note:</strong> Placeholder stats — client provides real numbers</li>
+</ul>
+<hr>
+<h3>Section 7 — <code>.contact</code> Orange Background (only colored section)</h3>
+<ul>
+<li>Headline: &quot;מוכן להתחיל?&quot;</li>
+<li>Form fields: Name, Email, Phone (optional), Goal dropdown</li>
+<li>Dropdown options: מסה | חיטוב | כוח | שיפור כללי</li>
+<li>Submit button: Black with white text</li>
+<li>Backend: Existing Google Sheets script URL (copy verbatim from current index.html)</li>
+</ul>
+<hr>
+<h3>Section 8 — <code>&lt;footer&gt;</code> Black Background</h3>
+<ul>
+<li>Brand name + tagline on one side</li>
+<li>Instagram + WhatsApp icon links (inline SVG) on the other</li>
+<li>Copyright line</li>
+</ul>
+<hr>
+<h2>Animations &amp; Interactions</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Animation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nav</td>
+<td>bg fades to black on scroll (JS event listener)</td>
+</tr>
+<tr>
+<td>Section entry</td>
+<td>IntersectionObserver → fade + slide up (CSS keyframes)</td>
+</tr>
+<tr>
+<td>Coach photos</td>
+<td>grayscale → color on hover (CSS filter transition)</td>
+</tr>
+<tr>
+<td>Service cards</td>
+<td>orange glow box-shadow on hover</td>
+</tr>
+<tr>
+<td>CTA buttons</td>
+<td>scale(1.03) + brightness on hover</td>
+</tr>
+<tr>
+<td>Stats</td>
+<td>Vanilla JS count-up on IntersectionObserver trigger</td>
+</tr>
+</tbody>
+</table>
+<p>All via CSS transitions + vanilla JS. Zero external libraries.</p>
+<hr>
+<h2>Risks / Edge Cases</h2>
+<ol>
+<li><strong>Hebrew RTL layout:</strong> Use <code>margin-inline-start/end</code> instead of <code>margin-left/right</code>. Test all flex rows under <code>dir=&quot;rtl&quot;</code>.</li>
+<li><strong>Bebas Neue — no Hebrew:</strong> Architecture above accounts for this. DM Sans covers all Hebrew.</li>
+<li><strong>Coach photo dimensions unknown:</strong> Use <code>object-fit: cover</code> in a fixed-aspect-ratio container.</li>
+<li><strong>Stat numbers (placeholder):</strong> Mark clearly in code comments so client can update.</li>
+<li><strong>Form Google Sheets URL:</strong> Copy from current index.html — do not change.</li>
+<li><strong>No <code>styles.css</code> in root — it's in <code>assets/styles.css</code>:</strong> Keep this path.</li>
+</ol>
+<hr>
+<h2>Troubleshooting Log</h2>
+<p><em>(empty — implementation not yet started)</em></p>

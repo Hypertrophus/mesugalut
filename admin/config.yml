@@ -1,0 +1,21 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "posts"
+    label: "מאמרים (Posts)"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "כותרת", name: "title", widget: "string"}
+      - {label: "תיאור / תקציר", name: "description", widget: "text"}
+      - {label: "קטגוריה", name: "category", widget: "string"}
+      - {label: "תמונה ראשית", name: "image", widget: "image", required: false}
+      - {label: "תוכן", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["posts"]}

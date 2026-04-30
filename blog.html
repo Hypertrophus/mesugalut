@@ -1,114 +1,104 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מאמרים | Safarov & Sagi</title>
-    <meta name="description" content="מאמרים ותכנים מקצועיים על אימון, תזונה, והיפרטרופיה מאת Safarov & Sagi.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
-    <style>
-        .placeholder-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--black);
-            padding: calc(var(--nav-h) + 60px) 28px 80px;
-        }
-        .placeholder-inner {
-            text-align: center;
-            max-width: 560px;
-        }
-        .placeholder-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--accent);
-            padding: 6px 14px;
-            border: 1px solid rgba(232,97,26,0.35);
-            border-radius: 100px;
-            margin-bottom: 28px;
-        }
-        .placeholder-title {
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--on-dark);
-        }
-        .placeholder-title span { color: var(--accent); }
-        .placeholder-sub {
-            font-size: 1.1rem;
-            color: var(--muted-dark);
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-        .placeholder-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 26px;
-            border: 1px solid rgba(240,237,232,0.25);
-            border-radius: 4px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--on-dark);
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .placeholder-back:hover {
-            border-color: rgba(240,237,232,0.6);
-            background: rgba(240,237,232,0.06);
-        }
-        .coming-soon-dot {
-            display: inline-block;
-            width: 8px; height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-left: 6px;
-            animation: pulse 1.8s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.75); }
-        }
-    </style>
-</head>
-<body>
+---
+layout: base.njk
+title: בלוג | מ.ס.ו.ג.ל.ו.ת
+description: סיפורים, תובנות ורעיונות על אימון, תקשורת והתפתחות. קראו מאמרים בנושאי כושר, תקשורת ותחביבים.
+---
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">
+            מ.ס.ו.ג.ל.ו.ת <span class="brand-dot">·</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/" class="nav-link">בית</a></li>
+            <li>
+                <a href="/blog.html" class="nav-link active">בלוג</a>
+            </li>
+            <li>
+                <a href="/#contact" class="nav-link">להרשמה</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <!-- NAV -->
-    <nav id="navbar" class="scrolled">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-brand">SAFAROV <span class="brand-dot">·</span> SAGI</a>
-            <ul class="nav-links">
-                <li><a href="blog.html" class="nav-link" style="color: var(--accent);">מאמרים</a></li>
-                <li><a href="index.html#services" class="nav-link">שירותים</a></li>
-                <li><a href="https://www.youtube.com/@sg.fitness.podcast" target="_blank" rel="noopener" class="nav-link">הפודקאסט ↗</a></li>
-                <li><a href="competition.html" class="nav-link">הכנה לתחרות</a></li>
-            </ul>
-            <a href="index.html#contact" class="nav-cta">יצירת קשר</a>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <span class="hero-label">מוקדים למידה והעשרה</span>
+                <h1 class="hero-title">
+                    <span class="line">אוסף מאמרים מקצועי.</span>
+                    <span class="line line-accent">כל אחד לומד בקצב שלו.</span>
+                </h1>
+                <p class="hero-sub">
+                    סיפורים, תובנות ורעיונות על אימון, תקשורת והתפתחות.
+                    קראו מאמרים בנושאי כושר, תקשורת ותחביבים.
+                </p>
+                <div class="hero-actions">
+                    <a href="#articles-list" class="btn-primary">גלה את המאמרים</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
+    <div class="section-glow bottom"></div>
+</section>
 
-    <!-- PLACEHOLDER CONTENT -->
-    <main class="placeholder-page">
-        <div class="placeholder-inner">
-            <span class="placeholder-tag">בקרוב <span class="coming-soon-dot"></span></span>
-            <h1 class="placeholder-title">
-                תוכן שווה<br><span>עוד מגיע.</span>
-            </h1>
-            <p class="placeholder-sub">
-                אנחנו עובדים על מאמרים מעמיקים על אימון, תזונה, והיפרטרופיה.<br>
-                בלי buzzwords. רק מה שעובד בשטח.
-            </p>
-            <a href="index.html" class="placeholder-back">← חזרה לדף הבית</a>
+<!-- ===== ARTICLES LIST ===== -->
+<section class="about" id="articles-list">
+    <div class="container">
+        <h2 class="section-title">המאמרים שלנו</h2>
+        <p class="section-sub">
+            סיפורים, תובנות ורעיונות על אימון, תקשורת והתפתחות
+        </p>
+        <div class="articles-grid">
+            {% for post in collections.posts %}
+            <article class="article-card ri" data-delay="{{ loop.index0 * 110 % 330 }}">
+                <div class="article-image">
+                    <img src="{{ post.data.image }}" alt="{{ post.data.title }}" />
+                </div>
+                <div class="article-content">
+                    <span class="article-category">{{ post.data.category }}</span>
+                    <h3>
+                        <a href="{{ post.url }}" class="article-title">
+                            {{ post.data.title }}
+                        </a>
+                    </h3>
+                    <p class="article-excerpt">
+                        {{ post.data.description }}
+                    </p>
+                    <a href="{{ post.url }}" class="article-link">קרא את המאמר →</a>
+                </div>
+            </article>
+            {% else %}
+            <p>בקרוב יעלו מאמרים חדשים!</p>
+            {% endfor %}
         </div>
-    </main>
+    </div>
+    <div class="section-glow bottom"></div>
+</section>
 
-</body>
-</html>
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">מ.ס.וג.ל.ו.ת</span>
+                <span class="footer-tagline">מסגרת ספורטיבית וגיבושית לתקשורת ותנועה</span>
+            </div>
+            <div class="footer-links">
+                <a href="/" class="nav-link">חזרה לבית</a>
+                <a href="mailto:hello@msglvut.co.il" class="social-link" id="footer-email" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    יצירת קשר
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 מ.ס.וג.ל.ו.ת. כל הזכויות שמורות.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,168 @@
+<h1>Instructions — מסוגלות: Landing Page for Autism Sports-Social Club</h1>
+<h2>Goal</h2>
+<p>Transform the existing Safarov &amp; Sagi fitness landing page into a <strong>Hebrew, RTL landing page</strong> for <strong>מסוגלות</strong> (Mesugalut) — a sports-social club / activity framework designed for autistic teenagers.</p>
+<p>The page has <strong>two audiences</strong> that must be balanced:</p>
+<ul>
+<li><strong>Primary:</strong> Parents — who discover it first, evaluate it, and register their kids. They need trust, clarity, professionalism, and a sense of emotional safety.</li>
+<li><strong>Secondary:</strong> Teens themselves — who need to feel like this is their kind of place, not a medical program. Cool, energetic, not patronising.</li>
+</ul>
+<p>The design should feel <strong>modern and professional but human</strong> — no AI slop aesthetic, no overly clinical feel, no generic disability-charity clichés.</p>
+<hr>
+<h2>Project Details (Confirmed)</h2>
+<ol>
+<li><strong>Project name:</strong> מסגרת ספורטיבית וגיבושית לתקשורת ותנועה (מ.ס.וג.ל.ו.ת)</li>
+<li><strong>Activities offered:</strong> Gathering in a specific gym (Profit Bat-Yam) for resistance exercise, cardio, and games. Focus on exposure to a commercial gym, learning communication (grabbing attention, sharing machines, boundaries, hand gestures, logging workouts, timing with stopwatches). Also exposure to hobbies (drumming pad, guitar, AI games, art, video games).</li>
+<li><strong>Location:</strong> Bat-Yam, Israel (Profit Gym).</li>
+<li><strong>Who runs it:</strong> Roman Safarov (רומן ספרוב) - personal trainer, natural bodybuilder, 6 years working with autistic people. Connects training with health/strength. Hobbyist (drummer, gamer).</li>
+<li><strong>Registration / CTA goal:</strong> Contact form. Possible WhatsApp group placeholder. May be subsidized by the city administration later.</li>
+<li><strong>Social media:</strong> WhatsApp group placeholder for now.</li>
+<li><strong>Stats / trust signals:</strong> Removed / hidden for now.</li>
+<li><strong>Testimonials:</strong> Removed / hidden for now.</li>
+<li><strong>Google Sheet backend URL:</strong> Placeholder needed; the user will create a new sheet for this project.</li>
+<li><strong>Color palette direction:</strong> Modern &amp; clean (navy/teal/white) - already implemented.</li>
+<li><strong>Fonts:</strong> Rubik + Assistant (already implemented).</li>
+<li><strong>Description:</strong> Details are confirmed from <code>Mesugalut Description.md</code>.</li>
+</ol>
+<hr>
+<h2>Files Involved</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.html</code></td>
+<td>Full rewrite — all content replaced, structure restructured</td>
+</tr>
+<tr>
+<td><code>assets/styles.css</code></td>
+<td>Full rewrite — palette, fonts, and branding updated</td>
+</tr>
+<tr>
+<td><code>assets/coach1.jpg</code> / <code>coach2.jpg</code></td>
+<td>Will be replaced with generated images or placeholders</td>
+</tr>
+<tr>
+<td><code>blog.html</code> / <code>competition.html</code></td>
+<td>Will be left untouched (not part of scope)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Proposed Page Structure</h2>
+<h3>1. Navigation</h3>
+<ul>
+<li>Logo: <strong>מסוגלות</strong> (or project name)</li>
+<li>Links: אודות | פעילויות | הצוות | הרשמה</li>
+<li>CTA button: <strong>להרשמה</strong> / <strong>צור קשר</strong></li>
+</ul>
+<h3>2. Hero (Dark section — full viewport)</h3>
+<ul>
+<li>Label badge: e.g. <code>מסגרת ספורט וחברה לנוער אוטיסטי</code></li>
+<li>Big headline split across two lines:
+<ul>
+<li>Line 1: bold, white — e.g. <code>מגרש לכולם.</code></li>
+<li>Line 2: accent color — e.g. <code>מקום שנבנה בשבילך.</code></li>
+</ul>
+</li>
+<li>Sub-copy: one punchy line for teens + one reassuring line for parents</li>
+<li>Two CTAs: <code>להרשמה</code> (primary) + <code>מה אנחנו עושים ↓</code> (ghost)</li>
+<li>Right side: photo cards (activity/teens — generated imagery)</li>
+</ul>
+<h3>3. &quot;About / How It Works&quot; (White section)</h3>
+<ul>
+<li>Section title: <code>איך זה עובד</code> / <code>מה זה מסוגלות</code></li>
+<li>3 pillar cards:
+<ul>
+<li><strong>ספורט</strong> — פעילות גופנית מובנית ומהנה, מותאמת לכל רמה</li>
+<li><strong>חברה</strong> — קבוצה קבועה, חברים אמיתיים, שייכות</li>
+<li><strong>ביטחון</strong> — סביבה בטוחה, צוות מיומן, התקדמות בקצב שלך</li>
+</ul>
+</li>
+</ul>
+<h3>4. Activities (Dark section)</h3>
+<ul>
+<li>Replaces &quot;Services&quot;</li>
+<li>Each activity card: sport name tag, title, description, benefits list</li>
+</ul>
+<h3>5. Team (White section)</h3>
+<ul>
+<li>Replaces &quot;Coaches&quot;</li>
+<li>Photo + name + role + bio for each team member</li>
+<li>Generated images if no real photos available</li>
+</ul>
+<h3>6. Trust / Stats (Dark section)</h3>
+<ul>
+<li>Replaces &quot;Results&quot;</li>
+<li>Trust numbers (e.g. teens served, sessions/week, years running)</li>
+<li>Or parent testimonial quotes if stats not available</li>
+</ul>
+<h3>7. Registration / Contact (Accent color section)</h3>
+<ul>
+<li>Form fields adapted for parents: שם ההורה, שם הנוער, גיל הנוער, טלפון</li>
+<li>CTA copy: <code>רוצים להצטרף? נשמח לשמוע</code></li>
+<li>Same Google Sheets backend (no-cors pattern preserved)</li>
+</ul>
+<h3>8. Footer</h3>
+<ul>
+<li>Brand name + tagline</li>
+<li>Instagram + WhatsApp social links</li>
+<li>Copyright</li>
+</ul>
+<hr>
+<h2>Design Direction (Default Proposal)</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Background (dark sections)</td>
+<td><code>#0b0f1a</code> deep navy-black</td>
+<td>Warmer than stark black; sporty and modern</td>
+</tr>
+<tr>
+<td>Background (light sections)</td>
+<td><code>#f6f5f2</code> warm off-white</td>
+<td>Same warmth as original</td>
+</tr>
+<tr>
+<td>Accent color</td>
+<td>TBD — blue (<code>#2D9CDB</code>) or teal</td>
+<td>Trustworthy, energetic, distinct from the orange fitness page</td>
+</tr>
+<tr>
+<td>Heading font</td>
+<td><strong>Rubik</strong></td>
+<td>Excellent Hebrew support, rounded and professional</td>
+</tr>
+<tr>
+<td>Body font</td>
+<td><strong>Assistant</strong></td>
+<td>Clean, highly readable Hebrew</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE]
+Aesthetic target: <strong>sporty but grounded</strong> — not childlike, not clinical. Think Nike Israel meets a youth social program. No neon, no gradients unless requested.</p>
+</blockquote>
+<hr>
+<h2>Risks / Edge Cases</h2>
+<ul>
+<li><strong>Font:</strong> Bebas Neue (used in original) has zero Hebrew support — must switch to Rubik or similar.</li>
+<li><strong>Images:</strong> Will use AI-generated placeholder images for hero and team sections. Real photos can be swapped in later.</li>
+<li><strong>Form field names:</strong> Must be updated to match new audience (parent + teen info). If reusing the same Google Sheet, column headers need updating there too.</li>
+<li><strong>Teen vs. parent tone:</strong> Two registers required in the copy — will be addressed once description content is available.</li>
+<li><strong>RTL bullet arrows:</strong> <code>←</code> arrows on list items should stay correct in RTL, but will be verified after build.</li>
+</ul>
+<hr>
+<h2>Troubleshooting Log</h2>
+<p><em>(Append here if anything changes during implementation)</em></p>
