@@ -10,7 +10,7 @@ layout: base.njk
         <ul class="nav-links" id="nav-links">
             <li><a href="/" class="nav-link">בית</a></li>
             <li>
-                <a href="/blog.html" class="nav-link active">בלוג</a>
+                <a href="/blog/" class="nav-link active">בלוג</a>
             </li>
             <li>
                 <a href="/#contact" class="nav-link">להרשמה</a>
@@ -19,21 +19,51 @@ layout: base.njk
     </div>
 </nav>
 
-<section class="post-header" style="margin-top: 120px; text-align: center;">
+<!-- ===== ARTICLE HERO ===== -->
+<section class="article-hero" id="hero">
     <div class="container">
-        <span class="article-category" style="color: var(--accent); font-weight: bold;">{{ category }}</span>
-        <h1 style="font-size: 3rem; margin-bottom: 20px;">{{ title }}</h1>
-        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px;">
-            {{ description }}
-        </p>
-        {% if image %}
-        <img src="{{ image }}" alt="{{ title }}" style="width: 100%; max-width: 800px; border-radius: 12px; margin-bottom: 40px;" />
-        {% endif %}
+        <div class="article-hero-content">
+            <span class="hero-label" style="margin-bottom: 24px; display: inline-block;">{{ category }}</span>
+            <h1 class="hero-title" style="margin-bottom: 24px;">
+                <span class="line">{{ title }}</span>
+            </h1>
+            <p class="hero-sub" style="max-width: 800px; margin: 0 auto; font-size: 1.25rem;">
+                {{ description }}
+            </p>
+        </div>
     </div>
+    <div class="section-glow bottom"></div>
 </section>
 
-<section class="post-content" style="max-width: 800px; margin: 0 auto; padding: 0 20px 80px; line-height: 1.8; font-size: 1.1rem;">
-    {{ content | safe }}
+<!-- ===== ARTICLE CONTENT ===== -->
+<section class="article-content-wrapper">
+    <div class="container" style="max-width: 840px;">
+        <div class="article-back">
+            <a href="/blog/#articles-list" class="btn-ghost dark-ghost">
+                ← חזרה לכל המאמרים
+            </a>
+        </div>
+        
+        {% if image %}
+        <div class="article-featured-image">
+            <img src="{{ image }}" alt="{{ title }}" />
+        </div>
+        {% endif %}
+
+        <article class="article-body">
+            {{ content | safe }}
+        </article>
+
+        <div class="article-author-block">
+            <div class="author-avatar">
+                <div class="avatar-placeholder">מ.ס</div>
+            </div>
+            <div class="author-info">
+                <h4>נכתב על ידי צוות מסוגלות</h4>
+                <p>מאמנים ואנשי מקצוע מתחום התקשורת והתנועה, המוקדשים לקידום בני נוער מיוחדים.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -47,6 +77,10 @@ layout: base.njk
             <div class="footer-links">
                 <a href="/" class="nav-link">חזרה לבית</a>
                 <a href="mailto:hello@msglvut.co.il" class="social-link" id="footer-email" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
                     יצירת קשר
                 </a>
             </div>
