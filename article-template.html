@@ -10,7 +10,17 @@
         />
         
         <!-- קישור לקובץ העיצוב הראשי של האתר -->
-        <link rel="stylesheet" href="assets/styles.css" />
+        <link id="main-theme-style" rel="stylesheet" href="/assets/styles.css" />
+        
+        <!-- סקריפט תיקון נתיבים אוטומטי להרצה מקומית (ללא שרת) -->
+        <script>
+            if (window.location.protocol === 'file:') {
+                const stylesheet = document.getElementById('main-theme-style');
+                if (stylesheet) {
+                    stylesheet.setAttribute('href', stylesheet.getAttribute('href').replace(/^\//, ''));
+                }
+            }
+        </script>
         
         <!-- פונטים מ-Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,7 +30,7 @@
             rel="stylesheet"
         />
 
-        <!-- עיצובים ייחודיים ומעוצבים עבור דף המאמר (אינם משפיעים על שאר האתר) -->
+        <!-- עיצובים ייחודיים ומעוצבים עבור דף המאמר -->
         <style>
             /* סרגל התקדמות קריאה בראש הדף */
             .reading-progress {
@@ -103,10 +113,11 @@
                 color: var(--on-light);
                 opacity: 0.75;
                 transition: opacity 0.2s, transform 0.2s;
+                text-decoration: none;
             }
             .btn-back:hover {
                 opacity: 1;
-                transform: translateX(-4px); /* אנימציה של תנועה קלה שמאלה בעברית */
+                transform: translateX(-4px);
             }
 
             /* תמונה ראשית */
@@ -361,6 +372,7 @@
                 align-items: center;
                 gap: 6px;
                 margin-top: auto;
+                text-decoration: none;
             }
 
             /* התאמה למסכים ניידים */
@@ -387,16 +399,16 @@
         <!-- ===== סרגל ניווט עליון ===== -->
         <nav id="navbar">
             <div class="nav-inner">
-                <a href="index.html" class="nav-brand">
+                <a href="/index.html" class="nav-brand">
                     מ.ס.ו.ג.ל.ו.ת <span class="brand-dot">·</span>
                 </a>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html#about" class="nav-link">אודות</a></li>
-                    <li><a href="index.html#activities" class="nav-link">פעילויות</a></li>
-                    <li><a href="blog.html" class="nav-link active">מאמרים</a></li>
-                    <li><a href="index.html#team" class="nav-link">הצוות</a></li>
+                    <li><a href="/index.html#about" class="nav-link">אודות</a></li>
+                    <li><a href="/index.html#activities" class="nav-link">פעילויות</a></li>
+                    <li><a href="/blog.html" class="nav-link active">מאמרים</a></li>
+                    <li><a href="/index.html#team" class="nav-link">הצוות</a></li>
                 </ul>
-                <a href="index.html#contact" class="nav-cta" id="nav-cta">להרשמה</a>
+                <a href="/index.html#contact" class="nav-cta" id="nav-cta">להרשמה</a>
             </div>
         </nav>
 
@@ -426,14 +438,14 @@
         <section class="article-content-wrapper">
             <div class="container" style="max-width: 800px;">
                 <div class="article-back-nav">
-                    <a href="blog.html" class="btn-back">
+                    <a href="/blog.html" class="btn-back">
                         → חזרה לבלוג
                     </a>
                 </div>
                 
                 <!-- תמונה ראשית של המאמר -->
                 <div class="article-featured-image">
-                    <img src="assets/activity1.png" alt="נוער בפעילות ספורטיבית — מסוגלות" />
+                    <img src="/assets/activity1.png" alt="נוער בפעילות ספורטיבית — מסוגלות" />
                 </div>
 
                 <!-- גוף המאמר: כאן אתם רושמים או מדביקים את התוכן שלכם -->
@@ -482,7 +494,7 @@
                     <p>
                         ניתן לשלב תמונות נוספות לאורך המאמר באמצעות תגית התמונה <code>&lt;img&gt;</code> הרגילה. הן יקבלו אוטומטית פינות מעוגלות וצל עדין שמשלים את העיצוב הכללי:
                     </p>
-                    <img src="assets/activity2.png" alt="נוער רץ יחד — מסוגלות" />
+                    <img src="/assets/activity2.png" alt="נוער רץ יחד — מסוגלות" />
 
                     <p>
                         לסיום המאמר, מומלץ לכתוב פסקת סיכום קצרה המעניקה לקוראים נקודות למחשבה או שאלות להתעמקות, ומפנה אותם לתיבת ההרשמה שנמצאת ממש כאן למטה.
@@ -494,7 +506,7 @@
                     <div class="article-cta-glow"></div>
                     <h3>מעוניינים לשלב את ילדכם במסגרת שלנו?</h3>
                     <p>מ.ס.ו.ג.ל.ו.ת מציעה אימוני כושר מותאמים אישית, חיזוק תקשורת קבוצתית והעשרה חברתית לנוער וצעירים על הרצף האוטיסטי בבת ים.</p>
-                    <a href="index.html#contact" class="btn-primary">הצטרפו לפיילוט שלנו עכשיו</a>
+                    <a href="/index.html#contact" class="btn-primary">הצטרפו לפיילוט שלנו עכשיו</a>
                 </div>
 
                 <!-- תיבת פרטי הכותב / צוות מסוגלות -->
@@ -517,38 +529,38 @@
                     <!-- כרטיסייה 1 -->
                     <article class="related-card">
                         <div class="article-image">
-                            <img src="assets/activity1.png" alt="למה חדר כושר הוא סביבה אידיאלית לפיתוח מיומנויות חברתיות?" />
+                            <img src="/assets/activity1.png" alt="למה חדר כושר הוא סביבה אידיאלית לפיתוח מיומנויות חברתיות?" />
                         </div>
                         <div class="article-content">
                             <span class="article-category">התפתחות</span>
                             <h3>
-                                <a href="blog.html" class="article-title" style="text-decoration: none; color: inherit;">
+                                <a href="/blog.html" class="article-title" style="text-decoration: none; color: inherit;">
                                     למה חדר כושר הוא סביבה אידיאלית לפיתוח מיומנויות חברתיות?
                                 </a>
                             </h3>
                             <p>
                                 הבנת התפקיד המיוחד של פעילות גופנית בקבוצה בבניית ביטחון עצמי ויחסי בין-אנושיים.
                             </p>
-                            <a href="blog.html" class="article-link">קרא עוד ←</a>
+                            <a href="/blog.html" class="article-link">קרא עוד ←</a>
                         </div>
                     </article>
 
                     <!-- כרטיסייה 2 -->
                     <article class="related-card">
                         <div class="article-image">
-                            <img src="assets/activity2.png" alt="איך ללמוד תקשורת לא-לשונית בחדר כושר" />
+                            <img src="/assets/activity2.png" alt="איך ללמוד תקשורת לא-לשונית בחדר כושר" />
                         </div>
                         <div class="article-content">
                             <span class="article-category">מיומנויות חיים</span>
                             <h3>
-                                <a href="blog.html" class="article-title" style="text-decoration: none; color: inherit;">
+                                <a href="/blog.html" class="article-title" style="text-decoration: none; color: inherit;">
                                     איך ללמוד תקשורת לא-לשונית בחדר כושר
                                 </a>
                             </h3>
                             <p>
                                 גוף שומע, עין שומעת — מיומנויות קריטיות שנוצרות באופן טבעי בחדר כושר מסחרי.
                             </p>
-                            <a href="blog.html" class="article-link">קרא עוד ←</a>
+                            <a href="/blog.html" class="article-link">קרא עוד ←</a>
                         </div>
                     </article>
 
@@ -565,7 +577,7 @@
                         <span class="footer-tagline">מסגרת ספורטיבית וגיבושית לתקשורת ותנועה</span>
                     </div>
                     <div class="footer-links">
-                        <a href="index.html" class="nav-link">חזרה לבית</a>
+                        <a href="/index.html" class="nav-link">חזרה לבית</a>
                         <a href="mailto:hello@msglvut.co.il" class="social-link" id="footer-email" aria-label="Email">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -599,6 +611,24 @@
                 window.addEventListener("scroll", () => {
                     navbar.classList.toggle("scrolled", window.scrollY > 60);
                 }, { passive: true });
+            }
+
+            // ===== סקריפט תיקון נתיבים אוטומטי להרצה מקומית (ללא שרת) =====
+            if (window.location.protocol === 'file:') {
+                // תיקון קישורים עליונים ותחתונים
+                document.querySelectorAll('a').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && href.startsWith('/')) {
+                        a.setAttribute('href', href.replace(/^\//, ''));
+                    }
+                });
+                // תיקון תמונות
+                document.querySelectorAll('img').forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src && src.startsWith('/assets/')) {
+                        img.setAttribute('src', src.replace(/^\//, ''));
+                    }
+                });
             }
         </script>
     </body>
