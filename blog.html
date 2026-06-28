@@ -53,6 +53,7 @@ description: סיפורים, תובנות ורעיונות על אימון, תק
         </p>
         <div class="articles-grid">
             {% for post in collections.posts %}
+            {% if post.url == "/posts/article1/" or post.url == "/posts/failure-article/" %}
             <article class="article-card ri" data-delay="{{ loop.index0 * 110 % 330 }}">
                 <div class="article-image">
                     <img src="{{ post.data.image }}" alt="{{ post.data.title }}" />
@@ -70,6 +71,7 @@ description: סיפורים, תובנות ורעיונות על אימון, תק
                     <a href="{{ post.url }}" class="article-link">קרא את המאמר →</a>
                 </div>
             </article>
+            {% endif %}
             {% else %}
             <p>בקרוב יעלו מאמרים חדשים!</p>
             {% endfor %}

@@ -224,7 +224,7 @@ title: מ.ס.ו.ג.ל.ו.ת | מסגרת ספורטיבית וגיבושית ל�
                 </p>
                 <div class="articles-grid">
                     {% for post in collections.posts | reverse %}
-                    {% if loop.index0 < 3 %}
+                    {% if post.url == "/posts/article1/" or post.url == "/posts/failure-article/" %}
                     <article class="article-card ri" data-delay="{{ loop.index0 * 110 }}">
                         <div class="article-image">
                             <img src="{{ post.data.image }}" alt="{{ post.data.title }}" />
